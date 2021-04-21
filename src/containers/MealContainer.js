@@ -4,10 +4,11 @@ import Meal from '../components/Meal'
 export default class MealContainer extends Component {
     
     state = {
-        meals: []
+        meals: [],
+        category: ""
     }
 
-    componentDidUpdate(prevState, prevProps){
+    componentDidUpdate(prevProps){
         if(prevProps.category !== this.props.category){
             this.fetchMeals()
         }
@@ -20,7 +21,8 @@ export default class MealContainer extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                meals: data.meals
+                meals: data.meals,
+                category: this.props.category
             })
         })
     }
@@ -28,10 +30,10 @@ export default class MealContainer extends Component {
     render() {
         const meals = this.state.meals.map((meal, i) => <Meal key={i} meal={meal.strMeal} />)
         return (
-            <div>
-                {this.props.category !== "" ?
+            <div >
+                {this.state.category !== "" ?
                 (<div> 
-                    <h3>The {this.props.category} Meals</h3> 
+                    <h3>The {this.state.category} Meals</h3> 
                     {meals}
                 </div>) : (<h3>Please Select A Category</h3>)
                 }

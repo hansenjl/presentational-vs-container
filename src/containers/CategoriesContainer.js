@@ -17,7 +17,7 @@ class CategoriesContainer extends Component {
         .then(data => {
             console.log(data)
             this.setState({
-                categories: data.categories
+                categories: data.meals
             })
         })
     }
@@ -38,7 +38,7 @@ class CategoriesContainer extends Component {
                 <h2>The Categories:</h2>
                 {categories}
                 <hr/>
-                <h3>The Meals:</h3>
+                <h2 >The Meals:</h2>
                 <MealContainer category={this.state.category} />
             </div>
         )
