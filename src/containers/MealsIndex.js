@@ -18,6 +18,9 @@ export default class MealsIndex extends Component {
            })
         })
     }
+    componentDidMount(){
+        this.fetchMeals()
+    }
 
     componentDidUpdate(prevProps){
         if(prevProps.category !== this.props.category){

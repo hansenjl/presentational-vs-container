@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Category from "../components/Category"
-import MealsIndex from './MealsIndex'
+
 
 export default class CategoriesIndex extends Component {
 
@@ -38,8 +38,6 @@ export default class CategoriesIndex extends Component {
                 <h2>Categories:</h2>
                 {categories}
                 <hr />
-                
-                <MealsIndex category={this.state.category}/>
             </div>
         )
     }
